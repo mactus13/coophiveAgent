@@ -34,8 +34,7 @@
                 "Type": "IPFS"
             },
             "Resources": {
-                "CPU": "3",
-                "Memory": "3gb",
+
                 "GPU": "0"  
             },
             "Timeout": 1800,
