@@ -1,19 +1,20 @@
-import { Contract, ethers, TransactionReceipt, Wallet } from 'ethers';
-import ABI from './abis/AgentABI.json' assert { type: 'json' };
-import * as readline from 'readline';
+import { Contract, ethers, TransactionReceipt, Wallet } from "ethers";
+import ABI from "./abis/AgentABI.json" assert { type: "json" };
+import * as readline from "readline";
 
-import { config } from 'dotenv';
+import { config } from "dotenv";
 config();
 
 async function main() {
-  const rpcUrl = process.env.RPC_URL;
-  if (!rpcUrl) throw Error('Missing RPC_URL in .env');
-  const privateKey = process.env.PRIVATE_KEY;
-  if (!privateKey) throw Error('Missing PRIVATE_KEY in .env');
-  const contractAddress = process.env.AGENT_CONTRACT_ADDRESS;
-  if (!contractAddress) throw Error('Missing AGENT_CONTRACT_ADDRESS in .env');
+  const rpcUrl = "https://devnet.galadriel.com";
+  if (!rpcUrl) throw Error("Missing RPC_URL in .env");
+  const privateKey =
+    "0a8131d053cdf11a2a4ac0d306cee278ffbad0074e597fb10db5e55afb32667f";
+  if (!privateKey) throw Error("Missing PRIVATE_KEY in .env");
+  const contractAddress = "0xF757B73165820b1DD00E4F0a36a6ea17aD89A15a";
+  if (!contractAddress) throw Error("Missing AGENT_CONTRACT_ADDRESS in .env");
   const prompt = process.env.PROMPT;
-  if (!prompt) throw Error('Missing prompt in process args');
+  if (!prompt) throw Error("Missing prompt in process args");
 
   const provider = new ethers.JsonRpcProvider(rpcUrl);
   const wallet = new Wallet(privateKey, provider);
@@ -47,7 +48,7 @@ async function main() {
     );
     if (newMessages) {
       for (let message of newMessages) {
-        if (message.role === 'assistant') {
+        if (message.role === "assistant") {
           console.log(message.content);
           allMessages.push(message);
         }
@@ -69,7 +70,7 @@ function getAgentRunId(receipt, contract) {
   for (const log of receipt.logs) {
     try {
       const parsedLog = contract.interface.parseLog(log);
-      if (parsedLog && parsedLog.name === 'AgentRunCreated') {
+      if (parsedLog && parsedLog.name === "AgentRunCreated") {
         // Second event argument
         agentRunID = ethers.toNumber(parsedLog.args[1]);
       }
