@@ -1,6 +1,7 @@
 import { Contract, ethers, TransactionReceipt, Wallet } from "ethers";
 import ABI from "./abis/AgentABI.json" assert { type: "json" };
 import * as readline from "readline";
+import fs from "fs";
 
 import { config } from "dotenv";
 config();
@@ -63,6 +64,7 @@ async function main() {
       break;
     }
   }
+  fs.writeFileSync("./output/response.txt", JSON.stringify(allMessages));
 }
 
 function getAgentRunId(receipt, contract) {
