@@ -1,6 +1,6 @@
 {
     "machine": {
-        "gpu": 0,  // Update based on your needs
+        "gpu": 0, 
         "cpu": 1000,
         "ram": 8000
     },
