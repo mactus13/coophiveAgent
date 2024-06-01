@@ -4,6 +4,7 @@ import * as readline from "readline";
 import fs from "fs";
 
 import { config } from "dotenv";
+import path from "path";
 config();
 
 async function main() {
@@ -64,7 +65,16 @@ async function main() {
       break;
     }
   }
-  fs.writeFileSync("./output/response.txt", JSON.stringify(allMessages));
+
+  const outputPath = path.join(__dirname, 'outputs', 'response.txt')
+  fs.writeFileSync(outputPath, JSON.stringify(allMessages, null, 2), 'utf-8', (err) => {
+    if(err){
+      console.log({err});
+    }
+  });
+
+  
+  
 }
 
 function getAgentRunId(receipt, contract) {
