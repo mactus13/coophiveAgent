@@ -2,7 +2,7 @@
     "machine": {
         "gpu": 0, 
         "cpu": 1000,
-        "ram": 8000
+        "ram": 100
     },
     "job": {
         "APIVersion": "V1beta1",
