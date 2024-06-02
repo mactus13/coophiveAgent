@@ -11,7 +11,7 @@ async function main() {
   const rpcUrl = "https://devnet.galadriel.com";
   if (!rpcUrl) throw Error("Missing RPC_URL in .env");
   const privateKey =
-    "0a8131d053cdf11a2a4ac0d306cee278ffbad0074e597fb10db5e55afb32667f";
+    "698ffa7b9ef6e9368120761d5e5550b29f12810209efa1c0044c413b8840cdda";
   if (!privateKey) throw Error("Missing PRIVATE_KEY in .env");
   const contractAddress = "0xF757B73165820b1DD00E4F0a36a6ea17aD89A15a";
   if (!contractAddress) throw Error("Missing AGENT_CONTRACT_ADDRESS in .env");
@@ -67,12 +67,14 @@ async function main() {
   }
 
   console.log(allMessages);
-  await fs.writeFile(
-    "./outputs/response.json",
-    JSON.stringify(allMessages, null, 2),
-    "utf-8"
-  );
-  console.log("File has been saved successfully.");
+  await fs
+    .writeFile(
+      "./outputs/response.json",
+      JSON.stringify(allMessages, null, 2),
+      "utf-8"
+    )
+    .then(() => console.log("File has been saved successfully."));
+  // console.log("File has been saved successfully.");
 }
 
 function getAgentRunId(receipt, contract) {
