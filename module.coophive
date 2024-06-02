@@ -18,7 +18,7 @@
                 "Entrypoint": [
                     "node entrypoint.js"
                 ],
-                "Image": "leofranklin1509/projectsmith@sha256:1ce83cdf7397eefcf1a343b761825686b8211a0c0de879c951e5e5f4e820a1b4",
+                "Image": "leofranklin1509/projectsmith@sha256:e891ad19a163577d63af6ad79e135b03cc6dba2dbe35832f7335280b80486bca",
                 "EnvironmentVariables": [
                     "PROMPT={{.PROMPT}}"
                 ]

@@ -24,7 +24,7 @@ async function main() {
 
   // The query you want to start the agent with
   const query = prompt;
-  const maxIterations = 1;
+  const maxIterations = 2;
 
   // Call the startChat function
   const transactionResponse = await contract.runAgent(
@@ -73,7 +73,16 @@ async function main() {
       JSON.stringify(allMessages, null, 2),
       "utf-8"
     )
-    .then(() => console.log("File has been saved successfully."));
+    .then(() => {
+      console.log("File has been saved successfully.");
+      return fs.readFile("./outputs/response.json", "utf-8");
+    })
+    .then((data) => {
+      console.log("File content:", data);
+    })
+    .catch((error) => {
+      console.error("Error reading file:", error);
+    });
   // console.log("File has been saved successfully.");
 }
 
