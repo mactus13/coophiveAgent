@@ -20,7 +20,7 @@
         ],
         "Image": "leofranklin1509/projectsmith@sha256:7848605ef95ea76153125316360cba1d909bbdeec834b9652f2f456ee837df1b",
         "EnvironmentVariables": [
-          "PROMPT={{.PROMPT}}"
+          "INPUT={{.INPUT}}"
         ]
       },
       "Engine": "Docker",
