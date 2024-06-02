@@ -1,7 +1,7 @@
 import { Contract, ethers, TransactionReceipt, Wallet } from "ethers";
 import ABI from "./abis/AgentABI.json" assert { type: "json" };
 import * as readline from "readline";
-import fs from "fs";
+import fs from "fs/promises"; // Use the promise-based version of fs
 
 import { config } from "dotenv";
 import path from "path";
@@ -66,15 +66,13 @@ async function main() {
     }
   }
 
-  const outputPath = path.join(__dirname, 'outputs', 'response.txt')
-  fs.writeFileSync(outputPath, JSON.stringify(allMessages, null, 2), 'utf-8', (err) => {
-    if(err){
-      console.log({err});
-    }
-  });
-
-  
-  
+  console.log(allMessages);
+  await fs.writeFile(
+    "./outputs/response.json",
+    JSON.stringify(allMessages, null, 2),
+    "utf-8"
+  );
+  console.log("File has been saved successfully.");
 }
 
 function getAgentRunId(receipt, contract) {
