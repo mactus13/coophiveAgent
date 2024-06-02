@@ -42,13 +42,7 @@
             "Wasm": {
                 "EntryModule": {}
             },
-            "Outputs": [
-                {
-                    "Name": "outputs",
-                    "StorageSource": "IPFS",
-                    "Path": "/outputs"
-                }
-            ]
+           
         }
     }
 }

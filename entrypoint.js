@@ -24,7 +24,7 @@ async function main() {
 
   // The query you want to start the agent with
   const query = prompt;
-  const maxIterations = 2;
+  const maxIterations = 1;
 
   // Call the startChat function
   const transactionResponse = await contract.runAgent(
