@@ -6,10 +6,6 @@
   },
   "job": {
     "APIVersion": "V1beta1",
-    "Metadata": {
-      "CreatedAt": "2023-01-01T00:00:00Z",
-      "Requester": {}
-    },
     "Spec": {
       "Deal": {
         "Concurrency": 1
@@ -18,10 +14,11 @@
         "Entrypoint": [
           "node entrypoint.js"
         ],
-        "Image": "leofranklin1509/projectsmith@sha256:7848605ef95ea76153125316360cba1d909bbdeec834b9652f2f456ee837df1b",
+        "Image": "mactus13/coophiveAgent:latest",
         "EnvironmentVariables": [
           "INPUT={{.INPUT}}"
-        ]
+        ],
+        "WorkingDirectory": ""
       },
       "Engine": "Docker",
       "Language": {
