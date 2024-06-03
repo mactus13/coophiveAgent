@@ -14,7 +14,7 @@
         "Entrypoint": [
           "node entrypoint.js"
         ],
-        "Image": "mactus13/coophiveAgent:latest",
+        "Image": "mactus13/coophiveAgent/tree/fix:latest",
         "EnvironmentVariables": [
           "INPUT={{.INPUT}}"
         ],
